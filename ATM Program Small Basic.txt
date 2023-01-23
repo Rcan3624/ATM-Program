@@ -1,5 +1,7 @@
 Note: You will need Microsoft SmallBasic in order to run this code
 
+This is still a work in progress
+
 'Ryan Cannon
 '‎October ‎24, ‎2019 (Originally started) Revistited on 2/28/2022
 'This is my attempt at porting my raptor flowchart ATM program to Microsoft Small Basic
