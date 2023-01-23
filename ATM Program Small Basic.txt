@@ -1,0 +1,93 @@
+Note: You will need Microsoft SmallBasic in order to run this code
+
+'Ryan Cannon
+'‎October ‎24, ‎2019 (Originally started) Revistited on 2/28/2022
+'This is my attempt at porting my raptor flowchart ATM program to Microsoft Small Basic
+'I choose this because the raptor ATM flowchart is one of the few projects where I was
+'satisfied with the final result. The flowchart project was started on ‎September ‎25, ‎2019 and
+'was completed on ‎October ‎18, ‎2019, 
+
+'This program needs to be rewritten with options, Deposit, Withdraw and other
+'ATM Functions as Subroutines
+
+TextWindow.WriteLine("String up system")
+TextWindow.WriteLine("Loading variables..")
+CheckingBalance[4] = 0
+SavingsBalance[4] = 0
+Transaction = 0
+TransactionCount = 0
+MenuChoice = 0 
+Attempt = 0
+CustomerName[4] = ""
+UsernameStorage[4] = ""
+Username = ""
+PasswordStorage[4] = ""
+Password = ""
+Index = 1
+TextWindow.WriteLine("Variables loaded")
+TextWindow.WriteLine("Initializing arrays...")
+Goto InitalizeAccounts
+
+InitalizeAccounts: 'This seems to be working. Leave as a label.
+CustomerName[1] = "Robert Brown"
+CustomerName[2] = "Lisa White"
+CustomerName[3] = "Mark Black"
+CustomerName[4] = "Ryan Cannon"
+UsernameStorage[1] = "rbrown"
+UsernameStorage[2] = "lwhite"
+UsernameStorage[3] = "mblack"
+UsernameStorage[4] = "Rcannon13@ivytech.edu"
+PasswordStorage[1] = "blue123"
+PasswordStorage[2] = "red456
+PasswordStorage[3] = "green789"
+PasswordStorage[4] = "C04691798"
+CheckingBalance[1] = 35
+CheckingBalance[2] = 1250
+CheckingBalance[3] = 200
+CheckingBalance[4] = 900
+SavingsBalance[1] = 2500
+SavingsBalance[2] = 500
+SavingsBalance[3] = 750
+SavingsBalance[4] = 600
+TextWindow.WriteLine("Arrays initalized")
+TextWindow.WriteLine("Startup complete")
+Goto Login
+
+Login: 'Convert to subroutine
+TextWindow.WriteLine("Welcome")
+TextWindow.WriteLine("Please note that this ATM does not accept decimal values and will not dispense change.")
+TextWindow.Write("Enter username: ")
+Username = TextWindow.Read()
+
+If Username = "rbrown" Then
+  Goto Password
+
+ElseIf Username ="lwhite" Then 
+  Goto Password
+
+ElseIf Username ="mblack" Then 
+  Goto Password
+  
+ElseIf Username ="Rcannon13@ivytech.edu" Then 
+  Goto Password
+EndIf
+
+Password: 'Not sure if I should leave this as a label or convert it into a subroutine
+TextWindow.Write("Enter Password: ")
+Password = TextWindow.Read()
+
+If PasswordStorage[Index] = Password Then
+TextWindow.WriteLine("Hello " + CustomerName[Index])
+  Goto Options
+EndIf
+
+Options: 'Convert to Subroutine
+TextWindow.Write("Press 1 to deposit. Press 2 to withdraw. Press 3 for balance inquiry. Press 4 to transfer balance. Press 5 to logout: ")
+MenuChoice = TextWindow.Read()
+TextWindow.WriteLine("Sorry. Can't implemente other features yet until I get the hang of Small Basic. Good bye for now")
+
+TextWindow.WriteLine("Hello ") 'This is used to see if the arrays are being stored properly
+For index = 1 To 5
+  TextWindow.Write(UsernameStorage[index] + " ")
+EndFor
+TextWindow.WriteLine("")
